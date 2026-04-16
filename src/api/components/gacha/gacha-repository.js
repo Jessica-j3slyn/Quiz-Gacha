@@ -6,7 +6,7 @@ class GachaRepository {
     this.Prize = Prize;
   }
 
-  // 🔢 Hitung gacha user hari ini
+  // itung gacha user hari ini
   async countUserGachaToday(userId) {
     const start = new Date();
     start.setHours(0, 0, 0, 0);
@@ -17,38 +17,77 @@ class GachaRepository {
     });
   }
 
-  // 🎁 Ambil hadiah tersedia
+  async getUserAttemptsToday(userId) {
+    console.log('Getting user attempts for:', userId);
+    const start = new Date();
+    start.setHours(0, 0, 0, 0);
+
+    const result = await this.Gacha.find({
+      userId,
+      createdAt: { $gte: start },
+    });
+    console.log('User attempts result:', result);
+    return result;
+  }
+
+  async getPrizeById(id) {
+    return this.Prize.findOne({ id });
+  }
+
+  // Ambil hadiah yg masi ada
   async getAvailablePrizes() {
     return this.Prize.find({ remaining: { $gt: 0 } });
   }
 
-  // 🔄 Kurangi kuota hadiah
+  async getPrizes() {
+    return this.Prize.find();
+  }
+
+  async updatePrizeRemaining(prizeId, remaining) {
+    return this.Prize.findOneAndUpdate(
+      { id: prizeId },
+      { remaining },
+      { new: true }
+    );
+  }
+
+  // Kurangi kuota hadiah
   async decreasePrize(prizeId) {
     return this.Prize.findOneAndUpdate(
-      { id: prizeId }, // ⚠️ pakai id (sesuai kamu)
+      { id: prizeId },
       { $inc: { remaining: -1 } },
       { new: true }
     );
   }
 
-  // 💾 Simpan hasil gacha
+  // nyimpen hasil gacha
+  async createAttempt(userId, prizeId) {
+    return this.Gacha.create({ userId, prizeId });
+  }
+
   async createGachaLog(data) {
     return this.Gacha.create(data);
   }
 
-  // 📜 History user
+  // History user
   async getUserHistory(userId) {
     return this.Gacha.find({ userId })
       .populate('prizeId')
       .sort({ createdAt: -1 });
   }
 
-  // 🎁 Semua hadiah
+  //  Semua hadiah
   async getAllPrizes() {
     return this.Prize.find();
   }
 
-  // 👥 Semua pemenang
+  // Semua pemenang
+  async getAllAttemptsWithPrizes() {
+    return this.Gacha.find({ prizeId: { $ne: null } })
+      .populate('prizeId')
+      .sort({ createdAt: -1 });
+  }
+
   async getWinners() {
     return this.Gacha.find({ prizeId: { $ne: null } })
       .populate('prizeId')

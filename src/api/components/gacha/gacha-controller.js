@@ -1,4 +1,4 @@
-const gachaService = require('./gacha-services'); // ✅ pakai S
+const gachaService = require('./gacha-services');
 
 class GachaController {
   constructor() {
@@ -11,7 +11,7 @@ class GachaController {
 
       if (!userId) {
         return res.status(400).json({
-          message: 'userId wajib diisi',
+          message: 'userId wajib diisi yaw',
         });
       }
 
@@ -19,14 +19,17 @@ class GachaController {
 
       return res.status(200).json({
         success: true,
-        message: result.win ? `Wihh dapet ${result.prize}` : result.message,
+        message: result.win
+          ? `Omaigadd dapet ${result.prize} :D`
+          : result.message,
         data: result,
       });
     } catch (error) {
+      console.error('Gacha roll error:', error);
       if (error.message === 'LIMIT_EXCEEDED') {
         return res.status(403).json({
           success: false,
-          message: 'Batas gacha 5x per hari',
+          message: 'Sorryy batasnya cuman gacha 5x per hari :(',
         });
       }
 
