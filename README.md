@@ -7,7 +7,7 @@ Sistem Limit Harian: Biar nggak ada user yang "spam",ada batas maksimal 5 kali g
 
 Stok Hadiah : Tiap hadiah punya kuota sendiri-sendiri. Kalau stoknya habis, sistem bakal otomatis tau dan hadiah itu nggak bakal bisa dimenangkan lagi sampai stoknya diisi ulang.
 
-Pencatatan Otomatis : Setiap kali ada yang klik "Roll", datanya langsung dicatat ke MongoDB Atlas—baik itu pas mereka menang maupun pas zonk—jadi history-nya tetap terjaga.
+Pencatatan Otomatis : Setiap kali ada yang klik "Roll", datanya langsung dicatat ke MongoDB Atlas baik itu pas mereka menang maupun pas zonk ,jadi history-nya tetap aman.
 
 Privasi Pemenang (Masking): Untuk menjaga privasi, nama pemenang yang muncul di daftar publik sengaja saya sensor (disamarkan). Jadi yang tadinya "Jane Doe" bakal muncul sebagai "J*** *oe" saja.
 
