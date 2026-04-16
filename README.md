@@ -3,7 +3,7 @@
 Proyek ini saya buat untuk mengimplementasikan sistem undian atau Gacha berbasis API. Menggunakan Node.js dan Express, dengan MongoDB Atlas sebagai tempat penyimpanan datanya (database). Lewat sistem ini, orang-orang (user) bisa mencoba keberuntungan mereka untuk mendapatkan hadiah secara otomatis
 
 Fitur-Fitur yang Tersedia:
-Sistem Limit Harian: Biar nggak ada user yang "spam",ada batas maksimal 5 kali gacha sehari. Jadi kalau sudah limit, mereka baru bisa coba lagi besok.
+Sistem Limit Harian: Biar nggak ada user yang "spam",ada batas maksimal 5 kali gacha sehari. Jadi kalau sudah limit, baru bisa coba lagi besok.
 
 Stok Hadiah : Tiap hadiah punya kuota sendiri-sendiri. Kalau stoknya habis, sistem bakal otomatis tau dan hadiah itu nggak bakal bisa dimenangkan lagi sampai stoknya diisi ulang.
 
