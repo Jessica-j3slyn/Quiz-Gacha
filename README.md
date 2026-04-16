@@ -1,6 +1,6 @@
 # Kuis Backend Programming - Jessica Jeslyn 535250093
 
-Proyek ini saya buat untuk mengimplementasikan sistem undian atau Gacha berbasis API. Menggunakan Node.js dan Express, dengan MongoDB Atlas sebagai tempat penyimpanan datanya (database). Lewat sistem ini, user bisa mencoba keberuntungan mereka untuk mendapatkan hadiah secara otomatis
+Proyek ini saya buat untuk mengimplementasikan sistem undian atau Gacha berbasis API. Menggunakan Node.js dan Express, dengan MongoDB Atlas sebagai tempat penyimpanan datanya (database). Lewat sistem ini, orang-orang (user) bisa mencoba keberuntungan mereka untuk mendapatkan hadiah secara otomatis
 
 Fitur-Fitur yang Tersedia:
 Sistem Limit Harian: Biar nggak ada user yang "spam",ada batas maksimal 5 kali gacha sehari. Jadi kalau sudah limit, mereka baru bisa coba lagi besok.
