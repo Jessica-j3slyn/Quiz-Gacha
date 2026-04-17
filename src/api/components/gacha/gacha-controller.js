@@ -29,7 +29,7 @@ class GachaController {
       if (error.message === 'LIMIT_EXCEEDED') {
         return res.status(403).json({
           success: false,
-          message: 'Sorryy batasnya cuman gacha 5x per hari :(',
+          message: 'Abissssss! Jatahnya udah ga ada hari ini. Besok lagi ya :)',
         });
       }
 
